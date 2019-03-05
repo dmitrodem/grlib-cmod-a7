@@ -1,0 +1,10 @@
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE leon3mp.bit [get_hw_devices]
+program_hw_devices
+refresh_hw_device
+close_hw_target
+disconnect_hw_server
+close_hw
+quit
