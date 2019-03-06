@@ -12,16 +12,6 @@ package config is
   constant CFG_TRANSTECH : integer := TT_XGTP0;
   constant CFG_NOASYNC : integer := 0;
   constant CFG_SCAN : integer := 0;
--- Clock generator
-  constant CFG_CLKTECH : integer := artix7;
-  constant CFG_CLKMUL : integer := (4);
-  constant CFG_CLKDIV : integer := (8);
-  constant CFG_OCLKDIV : integer := 1;
-  constant CFG_OCLKBDIV : integer := 0;
-  constant CFG_OCLKCDIV : integer := 0;
-  constant CFG_PCIDLL : integer := 0;
-  constant CFG_PCISYSCLK: integer := 0;
-  constant CFG_CLK_NOFB : integer := 0;
 -- LEON processor core
   constant CFG_LEON : integer := 3;
   constant CFG_NCPU : integer := (1);
@@ -31,12 +21,12 @@ package config is
   constant CFG_SVT : integer := 1;
   constant CFG_RSTADDR : integer := 16#00000#;
   constant CFG_LDDEL : integer := (1);
-  constant CFG_NWP : integer := (2);
+  constant CFG_NWP : integer := (4);
   constant CFG_PWD : integer := 1*2;
   constant CFG_FPU : integer := (8+0) + 16*1 + 32*0;
   constant CFG_GRFPUSH : integer := 0;
   constant CFG_ICEN : integer := 1;
-  constant CFG_ISETS : integer := 1;
+  constant CFG_ISETS : integer := 2;
   constant CFG_ISETSZ : integer := 4;
   constant CFG_ILINE : integer := 4;
   constant CFG_IREPL : integer := 0;
@@ -45,7 +35,7 @@ package config is
   constant CFG_ILRAMADDR: integer := 16#8E#;
   constant CFG_ILRAMSZ : integer := 1;
   constant CFG_DCEN : integer := 1;
-  constant CFG_DSETS : integer := 1;
+  constant CFG_DSETS : integer := 2;
   constant CFG_DSETSZ : integer := 4;
   constant CFG_DLINE : integer := 4;
   constant CFG_DREPL : integer := 0;
@@ -94,7 +84,7 @@ package config is
 -- LEON2 memory controller
   constant CFG_MCTRL_LEON2 : integer := 1;
   constant CFG_MCTRL_RAM8BIT : integer := 1;
-  constant CFG_MCTRL_RAM16BIT : integer := 1;
+  constant CFG_MCTRL_RAM16BIT : integer := 0;
   constant CFG_MCTRL_5CS : integer := 0;
   constant CFG_MCTRL_SDEN : integer := 0;
   constant CFG_MCTRL_SEPBUS : integer := 0;
@@ -130,9 +120,9 @@ package config is
   constant CFG_GPT_WDOGEN : integer := 0;
   constant CFG_GPT_WDOG : integer := 16#0#;
 -- GPIO port
-  constant CFG_GRGPIO_ENABLE : integer := 0;
+  constant CFG_GRGPIO_ENABLE : integer := 1;
   constant CFG_GRGPIO_IMASK : integer := 16#0000#;
-  constant CFG_GRGPIO_WIDTH : integer := (7);
+  constant CFG_GRGPIO_WIDTH : integer := (32);
 -- GRLIB debugging
   constant CFG_DUART : integer := 0;
 end;

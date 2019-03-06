@@ -18,11 +18,6 @@ mainmenu_option next_comment
   source lib/techmap/gencomp/tech.in
 endmenu
 
-mainmenu_option next_comment
-  comment 'Clock generation'
-  source lib/techmap/clocks/clkgen.in
-endmenu
-
 source lib/gaisler/subsys/leon_dsu_stat_base.in
 source lib/grlib/amba/amba.in
 

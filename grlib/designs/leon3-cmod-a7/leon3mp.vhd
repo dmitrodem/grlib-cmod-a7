@@ -33,7 +33,6 @@ entity leon3mp is
     fabtech : integer := CFG_FABTECH;
     memtech : integer := CFG_MEMTECH;
     padtech : integer := CFG_PADTECH;
-    clktech : integer := CFG_CLKTECH;
     disas   : integer := CFG_DISAS;     -- Enable disassembly to console
     dbguart : integer := CFG_DUART;     -- Print UART on console
     pclow   : integer := CFG_PCLOW);
@@ -217,8 +216,8 @@ begin
   spimc : if CFG_SPIMCTRL = 1 generate
     spimctrl0 : spimctrl                -- SPI Memory Controller
       generic map (hindex     => 0, hirq => 1,
-                   faddr      => 16#000#, fmask => 16#ff8#,
-                   ioaddr     => 16#000#, iomask => 16#fff#,
+                   faddr      => 16#000#, fmask  => 16#ff8#,
+                   ioaddr     => 16#000#, iomask => 16#ff8#,
                    spliten    => CFG_SPLIT, oepol => 0,
                    sdcard     => CFG_SPIMCTRL_SDCARD,
                    readcmd    => CFG_SPIMCTRL_READCMD,

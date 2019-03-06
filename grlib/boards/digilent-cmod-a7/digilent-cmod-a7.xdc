@@ -5,14 +5,8 @@
 
 ## Clock signal 12 MHz
 set_property -dict {PACKAGE_PIN L17 IOSTANDARD LVCMOS33} [get_ports sysclk]
-create_clock -period 83.330 -name sys_clk -waveform {0.000 41.660} -add [get_ports sysclk]
-
-set_input_delay -clock clk_out0 1.000 [all_inputs]
-set_output_delay -clock clk_out0 1.000 [all_outputs]
-
-# create_clock -name jtag_clk -period 20 [get_nets {ahbjtaggen0.ahbjtag0/tapo_tck}]
-# set_clock_groups -asynchronous -group sys_clk -group jtag_clk
-
+create_clock -period 83.333 -name sysclk -add [get_ports sysclk]
+set_propagated_clock [get_clocks sysclk]
 
 ## LEDs
 set_property -dict {PACKAGE_PIN A17 IOSTANDARD LVCMOS33} [get_ports {led[0]}]
@@ -145,3 +139,11 @@ set_property -dict {PACKAGE_PIN P19 IOSTANDARD LVCMOS33} [get_ports RamOEn]
 set_property -dict {PACKAGE_PIN R19 IOSTANDARD LVCMOS33} [get_ports RamWEn]
 set_property -dict {PACKAGE_PIN N19 IOSTANDARD LVCMOS33} [get_ports RamCEn]
 
+# bitfile generation
+set_property BITSTREAM.CONFIG.CONFIGRATE     33 [current_design]
+set_property CONFIG_MODE                  SPIx4 [current_design]
+set_property BITSTREAM.CONFIG.SPI_BUSWIDTH    4 [current_design]
+set_property BITSTREAM.CONFIG.SPI_FALL_EDGE YES [current_design]
+set_property CONFIG_VOLTAGE                 3.3 [current_design]
+set_property CFGBVS                        VCCO [current_design]
+set_property BITSTREAM.GENERAL.COMPRESS    TRUE [current_design]
