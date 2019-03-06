@@ -89,3 +89,5 @@ include $(GRLIB)/bin/Makefile
 include $(GRLIB)/software/leon3/Makefile
 
 ##################  project specific targets ##########################
+grmon-launch:
+	LD_LIBRARY_PATH=$$PWD/lib GRMON_DIGILENT_HACK=1 grmon -ftdi -ftdigpio 0x00800080
